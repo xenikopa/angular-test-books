@@ -1,7 +1,7 @@
 <div class='books-list'>
   <div class='books-list__item' *ngFor='let book of books$ | async'>
     <div class='info'>
-        <a href='#'>{{book.name}}</a>
+        <a [routerLink]="['/books', book.id]">{{book.name}}</a>
         <p-rating 
           [(ngModel)]="book.rate"
           [readonly]='true'
@@ -9,5 +9,6 @@
         ></p-rating>
     </div>
     <img *ngIf='book?.image' src="{{book?.image}}" width='100px'/>
+    <img *ngIf='!book?.image' src='../../../assets/common/img/noImg.png' width='100px' heigth='100%' />
   </div>
 </div>

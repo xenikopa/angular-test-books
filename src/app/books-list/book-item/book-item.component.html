@@ -1,0 +1,128 @@
+<div>
+  <a [routerLink]='["/books"]'> < К списку книг </a>
+  <div class='book-item__header'>
+    <button 
+      type='button' 
+      class='btn' 
+      *ngIf='isReadState' 
+      (click)='onClickEdit()'
+    >Редактировать книгу</button>
+    <button 
+      type='submit' 
+      class='btn m-margin-left' 
+      *ngIf='!isReadState'
+      form="itemForm" 
+    >Сохранить изменения</button>
+    <button 
+      type='button' 
+      class='btn secondary' 
+      *ngIf='!isReadState'
+      (click)='onClickCancel()'
+    >Отменить</button>
+  </div>
+  <div class='book-item__form'>
+    <form #bookItemFrom='ngForm' (ngSubmit)="bookItemFrom.valid && onClickSave(bookItemFrom)" id="itemForm"> 
+      <div class='form-field'>
+        <label class='is-required'>Наименование книги</label>
+        <input 
+          type='text'
+          name='name' 
+          #name='ngModel' 
+          [ngModel]="(bookItem$ | async)?.name"   
+          [disabled]='isReadState' 
+          required
+          [class.has-error]="name.invalid && (name.dirty || name.touched || bookItemFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="name.invalid && (name.dirty || name.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Автор</label>
+        <input 
+          type='text' 
+          name='author' 
+          #author='ngModel' 
+          required
+          [ngModel]='(bookItem$ | async)?.author'  
+          [disabled]='isReadState'
+          [class.has-error]="author.invalid && (author.dirty || author.touched || bookItemFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="author.invalid && (author.dirty || author.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Издатель</label>
+        <input 
+          type='text' 
+          name='publisher' 
+          #publisher='ngModel' 
+          required
+          [ngModel]='(bookItem$ | async)?.publisher'  
+          [disabled]='isReadState'
+          [class.has-error]="publisher.invalid && (publisher.dirty || publisher.touched || bookItemFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="publisher.invalid && (publisher.dirty || publisher.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Код ISBN</label>
+        <input 
+          type='text' 
+          name='code' 
+          #code='ngModel' 
+          required
+          [ngModel]='(bookItem$ | async)?.code'  
+          [disabled]='isReadState'
+          [class.has-error]="code.invalid && (code.dirty || code.touched || bookItemFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="code.invalid && (code.dirty || code.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Год издания</label>
+        <input 
+          type="number" 
+          min="1900" 
+          max="2099" 
+          step="1"  
+          name='publishYear' 
+          #publishYear='ngModel' 
+          required
+          [ngModel]='(bookItem$ | async)?.publishYear' 
+          [disabled]='isReadState'
+          [class.has-error]="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookItemFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label>Количество страниц</label>
+        <input type="number" name='pageCount' [ngModel]='(bookItem$ | async)?.pageCount'  [disabled]='isReadState'/>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Описание</label>
+        <textarea  
+          [ngModel]='(bookItem$ | async)?.description'  
+          name='description' 
+          #description='ngModel' 
+          required
+          [disabled]='isReadState' 
+          [class.has-error]="description.invalid && (description.dirty || description.touched || bookItemFrom.submitted)"
+        ></textarea>
+        <span class='form-field__error' *ngIf="description.invalid && (description.dirty || description.touched || bookItemFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+    </form>
+    <div>
+      <img *ngIf='(bookItem$ | async)?.image' [src]='(bookItem$ | async)?.image' width='200px' heigth='100%' />
+
+      <img *ngIf='!(bookItem$ | async)?.image' src='../../../assets/common/img/noImg.png' width='200px' heigth='100%' />
+    </div>
+  </div>
+</div>

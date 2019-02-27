@@ -7,9 +7,11 @@ import { IBooksListService } from './common/IBooksListService';
 import {HttpClientModule} from '@angular/common/http';
 import {RatingModule} from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { BookItemComponent } from './book-item/book-item.component';
 @NgModule({
   declarations: [
-    BooksListComponent
+    BooksListComponent,
+    BookItemComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,10 @@ import { FormsModule } from '@angular/forms';
         path: '',
         component: BooksListComponent,
       },
+      {
+        path: ':id',
+        component: BookItemComponent,
+      }
     ])
   ],
   providers: [

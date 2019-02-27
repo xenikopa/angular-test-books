@@ -1,0 +1,25 @@
+.book-item{
+  &__header {
+    margin: 25px 0 16px 0;
+    & .m-margin-left {
+      margin-right: 10px;
+    }
+  }
+  &__form{
+    display: flex;
+    justify-content: space-between;
+    & form {
+      width: 70%;
+    }
+    & .form-field {
+      margin: 20px 0;
+      &:first-child {
+        margin: 0;
+      }
+      &__error{
+        color: #FF647C;
+        font-size: 14px;
+      }
+    }
+  }
+}
