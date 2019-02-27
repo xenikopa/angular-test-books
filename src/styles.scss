@@ -4,7 +4,7 @@ $black: #000000;
 $grey: #E5E5E5;
 $light-grey: #ECEBED;
 $white: #FFFFFF;
-$blue: #75beff;
+$blue: #44a7ff;
 $font: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
 $borderRadius: 2px;
@@ -28,11 +28,6 @@ body {
   font-size: 14px;
   line-height: 16px;
   color: $black;
-}
-
-main {
-  min-height: calc(100vh - 95px - 60px - 131px - 80px);
-  margin-bottom: 80px;
 }
 
 *:focus,
@@ -62,30 +57,6 @@ button {
   }
 }
 
-a, 
-button {
-  color: inherit;
-  text-decoration: underline;
-  transition: color 200ms;
-
-  svg,
-  span {
-    vertical-align: middle;
-  }
-
-  svg {
-    margin-right: 10px;
-
-    &:only-child {
-      margin-right: 0;
-    }
-  }
-
-  &:hover {
-    text-decoration: none;
-    transition: none;
-  }
-}
 
 
 [type='text'],

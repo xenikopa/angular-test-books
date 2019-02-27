@@ -1,4 +1,20 @@
 <div class="site">
+  <header>
+    <div class="outer">
+      <ul class='menu'>
+        <li>
+          <a [routerLink]="['/books']" [routerLinkActive]="['is-active']">
+            Главная
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/book-add']" [routerLinkActive]="['is-active']">
+            Добавить книгу
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
   <main>
       <div class="outer">
         <h1>Книжная полка фронтендера</h1>
