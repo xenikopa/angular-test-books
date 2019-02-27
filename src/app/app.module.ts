@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './appComponent/app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { BookAddComponent } from './book-add/book-add.component';
+import { BooksListService } from './books-list.service';
+import { IBooksListService } from './common/IBooksListService';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,9 +15,12 @@ import { BookAddComponent } from './book-add/book-add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: IBooksListService, useClass: BooksListService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

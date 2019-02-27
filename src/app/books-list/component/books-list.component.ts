@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IBooksListService } from '../common/IBooksListService';
 import { Observable } from 'rxjs/internal/Observable';
-import { IBook } from '../common/IBook';
+import { IBook } from 'src/app/common/IBook';
+import { IBooksListService } from 'src/app/common/IBooksListService';
 
 @Component({
   selector: 'app-books-list',

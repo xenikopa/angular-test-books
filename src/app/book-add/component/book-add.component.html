@@ -1,0 +1,109 @@
+<div>
+  <div class='book-item__header'>
+    <button 
+      type='submit' 
+      class='btn m-margin-left' 
+      form="itemForm" 
+    >Сохранить книгу</button>
+  </div>
+  <div class='book-item__form'>
+    <form #bookAddFrom='ngForm' (ngSubmit)="bookAddFrom.valid && onClickSave(bookAddFrom)" id="itemForm"> 
+      <div class='form-field'>
+        <label class='is-required'>Наименование книги</label>
+        <input 
+          type='text'
+          name='name' 
+          #name='ngModel' 
+          ngModel
+          required
+          [class.has-error]="name.invalid && (name.dirty || name.touched || bookAddFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="name.invalid && (name.dirty || name.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Автор</label>
+        <input 
+          type='text' 
+          name='author' 
+          #author='ngModel' 
+          required
+          ngModel
+          [class.has-error]="author.invalid && (author.dirty || author.touched || bookAddFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="author.invalid && (author.dirty || author.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Издатель</label>
+        <input 
+          type='text' 
+          name='publisher' 
+          #publisher='ngModel' 
+          required
+          ngModel 
+          [class.has-error]="publisher.invalid && (publisher.dirty || publisher.touched || bookAddFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="publisher.invalid && (publisher.dirty || publisher.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Код ISBN</label>
+        <input 
+          type='text' 
+          name='code' 
+          #code='ngModel' 
+          required
+          ngModel
+          [class.has-error]="code.invalid && (code.dirty || code.touched || bookAddFrom.submitted)"
+        />
+        <span class='form-field__error' *ngIf="code.invalid && (code.dirty || code.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Год издания</label>
+        <input 
+          type="number"
+          min="1900"
+          max="2099" 
+          step="1"  
+          name='publishYear' 
+          #publishYear='ngModel' 
+          required
+          ngModel
+          [class.has-error]="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookAddFrom.submitted) || isInvalidYear"
+        />
+        <span class='form-field__error' *ngIf="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+        <span class='form-field__error' *ngIf="isInvalidYear">
+          Год должен быть от 1990 до 2019
+        </span>
+      </div>
+      <div class='form-field'>
+        <label>Количество страниц</label>
+        <input type="number" name='pageCount' ngModel #pageCount='ngModel' />
+      </div>
+      <div class='form-field'>
+        <label class='is-required'>Описание</label>
+        <textarea  
+          ngModel 
+          name='description' 
+          #description='ngModel' 
+          required
+          [class.has-error]="description.invalid && (description.dirty || description.touched || bookAddFrom.submitted)"
+        ></textarea>
+        <span class='form-field__error' *ngIf="description.invalid && (description.dirty || description.touched || bookAddFrom.submitted)">
+          Поле необходимо заполнить
+        </span>
+      </div>
+    </form>
+    <div>
+      <img src='../../../assets/common/img/noImg.png' width='200px' heigth='100%' />
+    </div>
+  </div>
+</div>

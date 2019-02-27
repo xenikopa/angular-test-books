@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookAddComponent } from './book-add/book-add.component';
 
 const routes: Routes = [
   {
@@ -14,15 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'book-add',
-    component: BookAddComponent
+    loadChildren: './book-add/book-add.module#BookAddModule'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  declarations: [
-    BookAddComponent,
-  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

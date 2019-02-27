@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { map, filter, concatMap } from 'rxjs/operators';
-import { IBooksListService } from '../common/IBooksListService';
 import { isNull } from 'util';
 import { Observable } from 'rxjs';
-import { IBook } from '../common/IBook';
 import { NgForm } from '@angular/forms';
+import { IBook } from 'src/app/common/IBook';
+import { IBooksListService } from 'src/app/common/IBooksListService';
 
 @Component({
   selector: 'app-book-item',
