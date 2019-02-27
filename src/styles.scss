@@ -1,1 +1,209 @@
 /* You can add global styles to this file, and also import other style files */
+
+$black: #000000;
+$grey: #E5E5E5;
+$light-grey: #ECEBED;
+$white: #FFFFFF;
+$blue: #75beff;
+$font: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+$borderRadius: 2px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $font;
+  font-size: 14px;
+  line-height: 16px;
+  color: $black;
+}
+
+main {
+  min-height: calc(100vh - 95px - 60px - 131px - 80px);
+  margin-bottom: 80px;
+}
+
+*:focus,
+*:active {
+  outline: none;
+}
+button {
+  display: inline;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+
+  font: inherit;
+  color: inherit;
+  text-align: left;
+
+  -webkit-appearance: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+a, 
+button {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 200ms;
+
+  svg,
+  span {
+    vertical-align: middle;
+  }
+
+  svg {
+    margin-right: 10px;
+
+    &:only-child {
+      margin-right: 0;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    transition: none;
+  }
+}
+
+
+[type='text'],
+[type='password'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='url'],
+textarea {
+  font: normal normal 12px/16px $font;
+  color: $black;
+
+  display: block;
+  width: 100%;
+
+  min-width: 240px;
+  height: 48px;
+  margin: 0;
+  padding: 9px 8px;
+  border-radius: $borderRadius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $light-grey;
+  background-color: $white;
+  appearance: none;
+  box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+
+  &::placeholder {
+    color: #D0C9D6;
+    font-style: normal;
+    line-height: 20px;
+    font-size: 15px;
+
+    transform: none;
+    opacity: 1;
+  }
+
+  &:read-only {
+    color: #D0C9D6;
+
+    background-color: #f2f2f2;
+    cursor: default;
+  }
+
+  &:active, &:focus, &:hover{
+    border: 1px solid $blue;
+    border-radius: $borderRadius;
+  }
+
+  &.has-error {
+    border-left-color: #fc4949;
+  }
+}
+
+textarea {
+  height: 72px;
+  min-height: 36px;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+
+
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  background-color:rgba(229, 229, 229, 0.2);
+  overflow: auto;
+}
+.outer {
+  max-width: 940px + 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn,
+a.btn,
+input.btn,
+button.btn,
+label.btn {
+  font: normal bold 12px/1 Arial, 'Helvetica Neue', Helvetica, sans-seri;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+  position: relative;
+  display: inline-flex;
+  vertical-align: baseline;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 240px;
+  height: 48px;
+  margin: 0;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 10px;
+  box-shadow: none;
+  background-color: $blue;
+  cursor: pointer;
+
+  transition: background-color 200ms;
+
+  &:hover {
+    color: white;
+    background-color: darken($blue, 10%);
+    transition: none;
+  }
+
+
+  &:focus {
+    box-shadow: none;
+  }
+}

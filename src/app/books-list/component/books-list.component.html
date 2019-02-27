@@ -1,0 +1,13 @@
+<div class='books-list'>
+  <div class='books-list__item' *ngFor='let book of books$ | async'>
+    <div class='info'>
+        <a href='#'>{{book.name}}</a>
+        <p-rating 
+          [(ngModel)]="book.rate"
+          [readonly]='true'
+          [cancel]='false'
+        ></p-rating>
+    </div>
+    <img *ngIf='book?.image' src="{{book?.image}}" width='100px'/>
+  </div>
+</div>
