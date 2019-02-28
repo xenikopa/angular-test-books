@@ -1,4 +1,11 @@
 <div class='books-list'>
+  <div *ngIf='!(books$ | async) && !isLoading'>
+    Книг нет
+  </div>
+  <div class='books-list__loader' *ngIf="isLoading">
+    Загрузка..
+    <i class="pi pi-spin pi-spinner"></i>
+  </div>
   <div class='books-list__item' *ngFor='let book of books$ | async'>
     <div class='info'>
         <a [routerLink]="['/books', book.id]">{{book.name}}</a>

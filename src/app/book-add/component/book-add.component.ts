@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   selector: 'app-book-add',
   templateUrl: './book-add.component.html',
   styleUrls: [
-    './book-add.component.scss',
     '../../books-list/book-item/book-item.component.scss'
   ]
 })
