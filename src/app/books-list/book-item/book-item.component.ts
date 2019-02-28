@@ -13,6 +13,11 @@ import { IBooksListService } from 'src/app/common/IBooksListService';
   styleUrls: ['./book-item.component.scss']
 })
 export class BookItemComponent {
+  public isInvalidYear =
+    false;
+
+  public isInvalidPageCount =
+    false;
   public bookItem$: Observable<IBook> =
     this.route.paramMap.pipe(
       map((params: ParamMap) => params.get('id')),
@@ -31,7 +36,12 @@ export class BookItemComponent {
     this.isReadState = true;
   }
   public onClickSave(form: NgForm): void {
-    this.isReadState = true;
+    const { publishYear, pageCount } = form.form.value;
+    this.isInvalidYear = publishYear < 1990 || publishYear > 2019;
+    this.isInvalidPageCount = pageCount < 1;
+    if (form.valid && !this.isInvalidYear && !this.isInvalidPageCount) {
+      this.isReadState = true;
+    }
   }
   public onClickEdit(): void {
     this.isReadState = false;

@@ -86,7 +86,17 @@
       </div>
       <div class='form-field'>
         <label>Количество страниц</label>
-        <input type="number" name='pageCount' ngModel #pageCount='ngModel' />
+        <input 
+          type="number" 
+          min=0 
+          name='pageCount' 
+          ngModel 
+          #pageCount='ngModel' 
+          [class.has-error]="isInvalidPageCount"
+        />
+        <span class='form-field__error' *ngIf="isInvalidPageCount">
+          Некорректное количество страниц
+        </span>
       </div>
       <div class='form-field'>
         <label class='is-required'>Описание</label>

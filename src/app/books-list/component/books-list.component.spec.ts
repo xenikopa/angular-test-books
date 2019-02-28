@@ -58,13 +58,13 @@ describe('BooksListComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.debugElement.nativeElement;
-    const firstElementImg: Element = compiled.querySelector('.books-list__item:first-child img');
+    const firstElementImg: string = compiled.querySelectorAll('img')[0].getAttributeNode('src').value;
 
-    expect(firstElementImg.getAttribute('src')).toContain('/assets/common/img/noImg.png');
+    expect(firstElementImg).toContain('/assets/common/img/noImg.png');
 
-    const lastElementImg: Element = compiled.querySelector('.books-list__item:last-child img');
+    const lastElementImg: string = compiled.querySelectorAll('img')[1].getAttributeNode('src').value;
 
-    expect(lastElementImg.getAttribute('src')).toContain('src/test');
+    expect(lastElementImg).toContain('src/test');
   });
 
   it('expect set correct links to items', () => {
@@ -83,12 +83,8 @@ describe('BooksListComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.debugElement.nativeElement;
-    const firstElementImg: Element = compiled.querySelector('.books-list__item:first-child a');
-
-    expect(firstElementImg.getAttribute('href')).toContain('/books/0');
-
-    const lastElementImg: Element = compiled.querySelector('.books-list__item:last-child a');
-
-    expect(lastElementImg.getAttribute('href')).toContain('/books/1');
+    const firstElementHref =
+      compiled.querySelectorAll('a')[0].getAttribute('href');
+    expect(firstElementHref).toContain('books/0');
   });
 });

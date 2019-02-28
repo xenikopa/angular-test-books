@@ -94,15 +94,28 @@
           required
           [ngModel]='(bookItem$ | async)?.publishYear' 
           [disabled]='isReadState'
-          [class.has-error]="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookItemFrom.submitted)"
+          [class.has-error]="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookItemFrom.submitted) || isInvalidYear"
         />
         <span class='form-field__error' *ngIf="publishYear.invalid && (publishYear.dirty || publishYear.touched || bookItemFrom.submitted)">
           Поле необходимо заполнить
         </span>
+        <span class='form-field__error' *ngIf="isInvalidYear">
+          Год должен быть от 1990 до 2019
+        </span>
       </div>
       <div class='form-field'>
         <label>Количество страниц</label>
-        <input type="number" name='pageCount' [ngModel]='(bookItem$ | async)?.pageCount'  [disabled]='isReadState'/>
+        <input 
+          type="number" 
+          min=0 
+          name='pageCount' 
+          [ngModel]='(bookItem$ | async)?.pageCount'  
+          [disabled]='isReadState'
+          [class.has-error]="isInvalidPageCount"
+        />
+        <span class='form-field__error' *ngIf="isInvalidPageCount">
+          Некорректное количество страниц
+        </span>
       </div>
       <div class='form-field'>
         <label class='is-required'>Описание</label>

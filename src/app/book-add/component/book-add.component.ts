@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 export class BookAddComponent {
   public isInvalidYear =
     false;
+
+  public isInvalidPageCount =
+    false;
   constructor(
     private bookListService: IBooksListService,
     private route: Router
@@ -24,7 +27,7 @@ export class BookAddComponent {
       name, pageCount, publishYear, publisher
     } = form.form.value;
     this.isInvalidYear = publishYear < 1990 || publishYear > 2019;
-
+    this.isInvalidPageCount = pageCount < 1;
     if (form.valid && !this.isInvalidYear) {
       const book: IBook = {
         id: 0, author, code, description,
