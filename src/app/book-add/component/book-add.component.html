@@ -113,7 +113,11 @@
       </div>
     </form>
     <div>
-      <img src='../../../assets/common/img/noImg.png' width='200px' heigth='100%' />
+      <img src='../../../assets/common/img/noImg.png' width='200px' heigth='100%' id="book-img"/>
+      <p-fileUpload name="image" accept="image/*" auto="auto" (onSelect)='onUploadImg($event.files)'>
+        <ng-template let-file pTemplate="file">
+        </ng-template>
+      </p-fileUpload>
     </div>
   </div>
 </div>

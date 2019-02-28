@@ -46,4 +46,15 @@ export class BookItemComponent {
   public onClickEdit(): void {
     this.isReadState = false;
   }
+
+  public onUploadImg(files: FileList): void {
+    if (FileReader && files && files.length) {
+      const fr = new FileReader();
+      fr.onload = function () {
+        const element: any = document.getElementById('book-img');
+        element.src = fr.result;
+      };
+      fr.readAsDataURL(files[0]);
+    }
+  }
 }

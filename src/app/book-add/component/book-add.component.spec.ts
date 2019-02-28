@@ -8,6 +8,7 @@ import { BooksListService } from 'src/app/books-list.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { FileUploadModule } from 'primeng/fileupload';
 
 describe('BookAddComponent', () => {
   let component: BookAddComponent;
@@ -23,6 +24,7 @@ describe('BookAddComponent', () => {
         CommonModule,
         FormsModule,
         HttpClientTestingModule,
+        FileUploadModule,
         RouterTestingModule.withRoutes([
           {
             path: 'books',

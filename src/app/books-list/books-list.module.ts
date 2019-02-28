@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import {RatingModule} from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { BookItemComponent } from './book-item/book-item.component';
+import {FileUploadModule} from 'primeng/fileupload';
 @NgModule({
   declarations: [
     BooksListComponent,
@@ -13,6 +14,7 @@ import { BookItemComponent } from './book-item/book-item.component';
   imports: [
     CommonModule,
     FormsModule,
+    FileUploadModule,
     RatingModule,
     RouterModule.forChild([
       {

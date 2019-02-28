@@ -8,6 +8,7 @@ import { BooksListService } from 'src/app/books-list.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs/internal/observable/of';
 import { IBook } from 'src/app/common/IBook';
+import { FileUploadModule } from 'primeng/fileupload';
 
 describe('BookItemComponent', () => {
   let component: BookItemComponent;
@@ -19,6 +20,7 @@ describe('BookItemComponent', () => {
       imports: [
         RouterTestingModule,
         FormsModule,
+        FileUploadModule,
         HttpClientTestingModule
       ],
       providers: [

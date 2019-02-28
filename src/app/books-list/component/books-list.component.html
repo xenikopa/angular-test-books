@@ -11,8 +11,6 @@
         <a [routerLink]="['/books', book.id]">{{book.name}}</a>
         <p-rating 
           [(ngModel)]="book.rate"
-          [readonly]='true'
-          [cancel]='false'
         ></p-rating>
     </div>
     <img *ngIf='book?.image' src="{{book?.image}}" width='120px'  height='180px'/>

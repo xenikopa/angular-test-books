@@ -133,9 +133,15 @@
       </div>
     </form>
     <div>
-      <img *ngIf='(bookItem$ | async)?.image' [src]='(bookItem$ | async)?.image' width='200px' heigth='100%' />
+      <img *ngIf='(bookItem$ | async)?.image' [src]='(bookItem$ | async)?.image' width='200px' heigth='100%' id='book-img'/>
 
       <img *ngIf='!(bookItem$ | async)?.image' src='../../../assets/common/img/noImg.png' width='200px' heigth='100%' />
+
+      <p-fileUpload name="image" accept="image/*" auto="auto" (onSelect)='onUploadImg($event.files)'>
+        <ng-template let-file pTemplate="file">
+        </ng-template>
+      </p-fileUpload>
+
     </div>
   </div>
 </div>

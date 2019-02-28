@@ -4,6 +4,7 @@ import { BookAddComponent } from './component/book-add.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     FormsModule,
+    FileUploadModule,
     RouterModule.forChild([
       {
         path: '',
