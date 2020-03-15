@@ -1,27 +1,40 @@
 # AitargetBooks
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+This is test project for books CRUD.
 
-## Development server
+![Project view](src/assets/project-view.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Stack:
+- Angular
+- SCSS
+- [PrimeNG](https://www.primefaces.org/primeng/)
 
-## Code scaffolding
+## Functional
+- read books list from JSON
+- add new books
+- detail card for book
+- update books
+- used [PrimeNG](https://www.primefaces.org/primeng/) for rating and upload files
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+Install with [npm](http://www.npmjs.com/):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```sh
+$ npm install
+```
+or with [yarn](https://yarnpkg.com/)
+```sh
+$ yarn install
+```
 
-## Running unit tests
+## Developing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run develop with command
 
-## Running end-to-end tests
+>`npm start`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Navigate to `http://localhost:4200/`.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Get prod builded files with command
+>`npm run build:prod`
